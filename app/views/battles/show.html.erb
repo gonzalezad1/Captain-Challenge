@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Firstpersonnage:</strong>
+  <%= @battle.firstpersonnage %>
+</p>
+
+<p>
+  <strong>Secondpersonnage:</strong>
+  <%= @battle.secondpersonnage %>
+</p>
+
+<p>
+  <strong>Winner:</strong>
+  <%= @battle.winner %>
+</p>
+
+<p>
+  <strong>Recapfight:</strong>
+  <%= @battle.recapfight %>
+</p>
+
+<%= link_to 'Edit', edit_battle_path(@battle) %> |
+<%= link_to 'Back', battles_path %>

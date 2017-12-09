@@ -1,0 +1,47 @@
+<%= form_with(model: personnage, local: true) do |form| %>
+  <% if personnage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(personnage.errors.count, "error") %> prohibited this personnage from being saved:</h2>
+
+      <ul>
+      <% personnage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :personnage_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :exp %>
+    <%= form.number_field :exp, id: :personnage_exp %>
+  </div>
+
+  <div class="field">
+    <%= form.label :life %>
+    <%= form.number_field :life, id: :personnage_life %>
+  </div>
+
+  <div class="field">
+    <%= form.label :firstweapons %>
+    <%= form.number_field :firstweapons, id: :personnage_firstweapons %>
+  </div>
+
+  <div class="field">
+    <%= form.label :secondweapons %>
+    <%= form.number_field :secondweapons, id: :personnage_secondweapons %>
+  </div>
+
+  <div class="field">
+    <%= form.label :velocity %>
+    <%= form.number_field :velocity, id: :personnage_velocity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module PersoWeapsHelper
+end

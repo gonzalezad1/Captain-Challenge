@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Personnage:</strong>
+  <%= @perso_weap.personnage_id %>
+</p>
+
+<p>
+  <strong>Weapon:</strong>
+  <%= @perso_weap.weapon_id %>
+</p>
+
+<%= link_to 'Edit', edit_perso_weap_path(@perso_weap) %> |
+<%= link_to 'Back', perso_weaps_path %>

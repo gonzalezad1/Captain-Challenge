@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @personnage.name %>
+</p>
+
+<p>
+  <strong>Exp:</strong>
+  <%= @personnage.exp %>
+</p>
+
+<p>
+  <strong>Life:</strong>
+  <%= @personnage.life %>
+</p>
+
+<p>
+  <strong>Firstweapons:</strong>
+  <%= @personnage.firstweapons %>
+</p>
+
+<p>
+  <strong>Secondweapons:</strong>
+  <%= @personnage.secondweapons %>
+</p>
+
+<p>
+  <strong>Velocity:</strong>
+  <%= @personnage.velocity %>
+</p>
+
+<%= link_to 'Edit', edit_personnage_path(@personnage) %> |
+<%= link_to 'Back', personnages_path %>

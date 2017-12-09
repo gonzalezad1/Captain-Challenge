@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  exp: 1
+  life: 1
+  firstweapons: 1
+  secondweapons: 1
+  velocity: 1
+
+two:
+  name: MyString
+  exp: 1
+  life: 1
+  firstweapons: 1
+  secondweapons: 1
+  velocity: 1

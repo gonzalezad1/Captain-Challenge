@@ -1,0 +1,27 @@
+<%= form_with(model: perso_weap, local: true) do |form| %>
+  <% if perso_weap.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(perso_weap.errors.count, "error") %> prohibited this perso_weap from being saved:</h2>
+
+      <ul>
+      <% perso_weap.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :personnage_id %>
+    <%= form.number_field :personnage_id, id: :perso_weap_personnage_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :weapon_id %>
+    <%= form.number_field :weapon_id, id: :perso_weap_weapon_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
