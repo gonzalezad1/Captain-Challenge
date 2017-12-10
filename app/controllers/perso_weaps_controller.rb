@@ -32,16 +32,17 @@ class PersoWeapsController < ApplicationController
   # POST /perso_weaps.json
   def create
     # @perso_weap = PersoWeap.new(perso_weap_params)
-
+    arr = []
     if params.has_key?("perso")
       PersoWeap.create(perso_weap_params(params["persos"]))
     else
       params["persos"].each do |perso|
         if perso["personnage_id"] != "" || perso["weapon_id"] != ""
-          PersoWeap.create(perso_weap_params(perso))
+          arr << PersoWeap.create(perso_weap_params(perso))
         end
       end
     end
+    session[:combattant] = arr
     # respond_to do |format|
     #   if @perso_weap.save
     #     format.html { redirect_to @perso_weap, notice: 'Perso weap was successfully created.' }
