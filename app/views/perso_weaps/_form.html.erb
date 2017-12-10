@@ -11,14 +11,19 @@
     </div>
   <% end %>
 
+
+
   <div class="field">
     <%= form.label :personnage_id %>
-    <%= form.number_field :personnage_id, id: :perso_weap_personnage_id %>
+
+    <%= collection_select(:perso_weap, :personnage_id, Personnage.all, :id, :name, prompt: true) %>
   </div>
+
 
   <div class="field">
     <%= form.label :weapon_id %>
-    <%= form.number_field :weapon_id, id: :perso_weap_weapon_id %>
+    <%= collection_select(:perso_weap, :weapon_id, Weapon.all, :id, :name, prompt: true) %>
+
   </div>
 
   <div class="actions">

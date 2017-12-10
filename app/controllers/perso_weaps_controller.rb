@@ -14,7 +14,14 @@ class PersoWeapsController < ApplicationController
 
   # GET /perso_weaps/new
   def new
-    @perso_weap = PersoWeap.new
+    @persos = []
+    2.times do
+      @persos << PersoWeap.new
+    end
+    @personnages= Personnage.all
+    @weapons= Weapon.all
+    @personnage = Personnage.new
+    @weapon = Weapon.new
   end
 
   # GET /perso_weaps/1/edit
@@ -24,17 +31,26 @@ class PersoWeapsController < ApplicationController
   # POST /perso_weaps
   # POST /perso_weaps.json
   def create
-    @perso_weap = PersoWeap.new(perso_weap_params)
+    # @perso_weap = PersoWeap.new(perso_weap_params)
 
-    respond_to do |format|
-      if @perso_weap.save
-        format.html { redirect_to @perso_weap, notice: 'Perso weap was successfully created.' }
-        format.json { render :show, status: :created, location: @perso_weap }
-      else
-        format.html { render :new }
-        format.json { render json: @perso_weap.errors, status: :unprocessable_entity }
+    if params.has_key?("perso")
+      PersoWeap.create(perso_weap_params(params["persos"]))
+    else
+      params["persos"].each do |perso|
+        if perso["personnage_id"] != "" || perso["weapon_id"] != ""
+          PersoWeap.create(perso_weap_params(perso))
+        end
       end
     end
+    # respond_to do |format|
+    #   if @perso_weap.save
+    #     format.html { redirect_to @perso_weap, notice: 'Perso weap was successfully created.' }
+    #     format.json { render :show, status: :created, location: @perso_weap }
+    #   else
+    #     format.html { render :new }
+    #     format.json { render json: @perso_weap.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # PATCH/PUT /perso_weaps/1
@@ -62,13 +78,14 @@ class PersoWeapsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_perso_weap
-      @perso_weap = PersoWeap.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_perso_weap
+    @perso_weap = PersoWeap.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def perso_weap_params
-      params.require(:perso_weap).permit(:personnage_id, :weapon_id)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def perso_weap_params(my_params)
+    my_params.permit(:personnage_id, :weapon_id)
+    # params.require(:perso_weap).permit(:personnage_id, :weapon_id)
+  end
 end

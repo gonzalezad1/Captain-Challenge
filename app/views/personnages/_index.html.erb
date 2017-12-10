@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body class="personnages">
+
+<div class="container">
+  <table>
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Exp</th>
+      <th>Life</th>
+      <th>Velocity</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <% @personnages.each do |personnage| %>
+        <tr>
+          <td><%= personnage.name %></td>
+          <td><%= personnage.exp %></td>
+          <td><%= personnage.life %></td>
+          <td><%= personnage.velocity %></td>
+          <td><%= link_to 'Show', personnage %></td>
+          <td><%= link_to 'Edit', edit_personnage_path(personnage) %></td>
+          <td><%= link_to 'Destroy', personnage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Personnage', new_personnage_path %>
+
+
+
+</div>
+</body>
+</html>

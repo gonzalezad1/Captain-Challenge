@@ -1,37 +1,42 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body class="personnages">
 
-<h1>Personnages</h1>
-
-<table>
-  <thead>
+<div class="container">
+  <table>
+    <thead>
     <tr>
       <th>Name</th>
       <th>Exp</th>
       <th>Life</th>
-      <th>Firstweapons</th>
-      <th>Secondweapons</th>
       <th>Velocity</th>
       <th colspan="3"></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @personnages.each do |personnage| %>
-      <tr>
-        <td><%= personnage.name %></td>
-        <td><%= personnage.exp %></td>
-        <td><%= personnage.life %></td>
-        <td><%= personnage.firstweapons %></td>
-        <td><%= personnage.secondweapons %></td>
-        <td><%= personnage.velocity %></td>
-        <td><%= link_to 'Show', personnage %></td>
-        <td><%= link_to 'Edit', edit_personnage_path(personnage) %></td>
-        <td><%= link_to 'Destroy', personnage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+        <tr>
+          <td><%= personnage.name %></td>
+          <td><%= personnage.exp %></td>
+          <td><%= personnage.life %></td>
+          <td><%= personnage.velocity %></td>
+          <td><%= link_to 'Show', personnage %></td>
+          <td><%= link_to 'Edit', edit_personnage_path(personnage) %></td>
+          <td><%= link_to 'Destroy', personnage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to 'New Personnage', new_personnage_path %>
+  <%= link_to 'New Personnage', new_personnage_path %>
+
+
+
+</div>
+</body>
+</html>
